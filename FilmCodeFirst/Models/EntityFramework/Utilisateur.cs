@@ -4,7 +4,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 using System.ComponentModel.DataAnnotations;
 using System.Xml.Linq;
 
-namespace APIfilms.Models.EntityFramework
+namespace FilmCodeFirst.Models.EntityFramework
 {
     [Table("t_e_utilisateur_utl")]
     [Index(nameof(Mail), Name = "uq_utl_mail", IsUnique = true)]

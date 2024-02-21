@@ -1,7 +1,7 @@
 ﻿using System.ComponentModel.DataAnnotations.Schema;
 using System.ComponentModel.DataAnnotations;
 
-namespace APIfilms.Models.EntityFramework
+namespace FilmCodeFirst.Models.EntityFramework
 {
     [Table("t_j_notation_not")]
     public partial class Notation

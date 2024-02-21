@@ -2,7 +2,7 @@
 using System.ComponentModel.DataAnnotations.Schema;
 using System.ComponentModel.DataAnnotations;
 
-namespace APIfilms.Models.EntityFramework
+namespace FilmCodeFirst.Models.EntityFramework
 {
     [Table("t_e_film_flm")]
     public class Film

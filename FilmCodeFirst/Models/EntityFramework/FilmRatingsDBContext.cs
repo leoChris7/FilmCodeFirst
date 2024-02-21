@@ -1,6 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 
-namespace APIfilms.Models.EntityFramework
+namespace FilmCodeFirst.Models.EntityFramework
 {
     public partial class FilmRatingsDBContext : DbContext
     {

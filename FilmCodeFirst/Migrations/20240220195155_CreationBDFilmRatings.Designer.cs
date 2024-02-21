@@ -3,6 +3,7 @@ using System;
 using FilmCodeFirst.Models.EntityFramework;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 
@@ -11,9 +12,10 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace FilmCodeFirst.Migrations
 {
     [DbContext(typeof(FilmRatingsDBContext))]
-    partial class FilmRatingsDBContextModelSnapshot : ModelSnapshot
+    [Migration("20240220195155_CreationBDFilmRatings")]
+    partial class CreationBDFilmRatings
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -22,7 +24,7 @@ namespace FilmCodeFirst.Migrations
 
             NpgsqlModelBuilderExtensions.UseIdentityByDefaultColumns(modelBuilder);
 
-            modelBuilder.Entity("FilmCodeFirst.Models.EntityFramework.Film", b =>
+            modelBuilder.Entity("APIfilms.Models.EntityFramework.Film", b =>
                 {
                     b.Property<int>("FilmId")
                         .ValueGeneratedOnAdd()
@@ -60,7 +62,7 @@ namespace FilmCodeFirst.Migrations
                     b.ToTable("t_e_film_flm");
                 });
 
-            modelBuilder.Entity("FilmCodeFirst.Models.EntityFramework.Notation", b =>
+            modelBuilder.Entity("APIfilms.Models.EntityFramework.Notation", b =>
                 {
                     b.Property<int>("UtilisateurId")
                         .HasColumnType("integer")
@@ -84,7 +86,7 @@ namespace FilmCodeFirst.Migrations
                     b.HasCheckConstraint("ck_not_note", "not_note between 0 and 5");
                 });
 
-            modelBuilder.Entity("FilmCodeFirst.Models.EntityFramework.Utilisateur", b =>
+            modelBuilder.Entity("APIfilms.Models.EntityFramework.Utilisateur", b =>
                 {
                     b.Property<int>("UtilisateurId")
                         .ValueGeneratedOnAdd()
@@ -167,16 +169,16 @@ namespace FilmCodeFirst.Migrations
                     b.ToTable("t_e_utilisateur_utl");
                 });
 
-            modelBuilder.Entity("FilmCodeFirst.Models.EntityFramework.Notation", b =>
+            modelBuilder.Entity("APIfilms.Models.EntityFramework.Notation", b =>
                 {
-                    b.HasOne("FilmCodeFirst.Models.EntityFramework.Film", "FilmNote")
+                    b.HasOne("APIfilms.Models.EntityFramework.Film", "FilmNote")
                         .WithMany("NotesFilm")
                         .HasForeignKey("FilmId")
                         .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired()
                         .HasConstraintName("fk_not_flm");
 
-                    b.HasOne("FilmCodeFirst.Models.EntityFramework.Utilisateur", "UtilisateurNotant")
+                    b.HasOne("APIfilms.Models.EntityFramework.Utilisateur", "UtilisateurNotant")
                         .WithMany("NotesUtilisateur")
                         .HasForeignKey("UtilisateurId")
                         .OnDelete(DeleteBehavior.Restrict)
@@ -188,12 +190,12 @@ namespace FilmCodeFirst.Migrations
                     b.Navigation("UtilisateurNotant");
                 });
 
-            modelBuilder.Entity("FilmCodeFirst.Models.EntityFramework.Film", b =>
+            modelBuilder.Entity("APIfilms.Models.EntityFramework.Film", b =>
                 {
                     b.Navigation("NotesFilm");
                 });
 
-            modelBuilder.Entity("FilmCodeFirst.Models.EntityFramework.Utilisateur", b =>
+            modelBuilder.Entity("APIfilms.Models.EntityFramework.Utilisateur", b =>
                 {
                     b.Navigation("NotesUtilisateur");
                 });
